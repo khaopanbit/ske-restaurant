@@ -14,6 +14,9 @@ public class RestaurantManeger {
 
 	public static double[] getPrices() {
 		double[] menuprice = new double[prices.size()];
+		for(int i=0;i<menuprice.length;i++){
+			menuprice[i] = prices.get(i);
+		}
 		return menuprice;
 	}
 

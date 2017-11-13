@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class MainRes {
 	static Scanner input = new Scanner(System.in);
 	static ArrayList<Integer> order = new ArrayList<Integer>();
@@ -11,12 +10,13 @@ public class MainRes {
 		String[] menu = RestaurantManeger.getMenuItems();
 		double[] price = RestaurantManeger.getPrices();
 		System.out.println("==============Welcome to SKE Restaurant=============");
-		for (int i = 0; i <= price.length-1; i++) {
-			System.out.printf("%d", i+1);
-			System.out.printf("%10s  %.0f Baht.\n",menu[i], price[i]);
+		for (int i = 0; i <= price.length - 1; i++) {
+			System.out.printf("%d", i + 1);
+			System.out.printf("%10s  %.0f Baht.\n", menu[i], price[i]);
 		}
 		System.out.println("Press : ");
 		System.out.println("[m] to menu");
+		System.out.println("[o] to order list");
 		System.out.println("[t] to total");
 		System.out.println("[q] to quit");
 	}
@@ -32,24 +32,23 @@ public class MainRes {
 		double[] price = RestaurantManeger.getPrices();
 		double total = 0;
 		if (choice.equalsIgnoreCase("o")) {
-			System.out.println("%10s SKE Restaurant");
+			System.out.println("SKE Restaurant");
 			System.out.println("||============Menu============||=========Quantity=========||=======Price======||");
-			for (int i = 0; i <= price.length; i++) {
+			for (int i = 0; i <= price.length - 1; i++) {
 				if (price[i] * order.get(i) != 0) {
-					System.out.printf("||%20.0s%d||%15.0s%d||%15.0s%d||/n", menu[i], order.get(i),
-							price[i] * order.get(i));
+					System.out.printf("|| \t\t %s||\t\t\t\t%d||     \t\t%.0f||\n", menu[i], order.get(i), price[i] * order.get(i));
 				}
 
 			}
 			for (int j = 0; j < menu.length; j++) {
 				total = total + order.get(j);
 			}
-			System.out.println("=======================================================================");
-			System.out.printf("||Total %20s||%10s %.0f||%10s %7.0f||\n", total, sum);
+			System.out.println("===============================================================================");
+			System.out.printf("||\t\t\tTotal ||\t\t\t %.0f||\t\t%7.0f||\n", total, sum);
 		}
 		return sum;
 	}
-
+ 
 	public static double price(String choice, int quantity) {
 		double price = 0;
 		int orders, all;
@@ -59,14 +58,14 @@ public class MainRes {
 			finalqty.add(0);
 		}
 		int choicesec = Integer.parseInt(choice);
-		for (int j = 0; j <= calculateprice.length; j++) {
-			if (choicesec == j) {
+		for (int j = 0; j < calculateprice.length; j++) {
+			if (choicesec == j+1) {
 				orders = order.get(j) + quantity;
 				order.add(j, orders);
-				order.remove(j);
+				order.remove(j+1);
 				all = quantity - finalqty.get(j);
 				finalqty.add(j, all);
-				finalqty.remove(j);
+				finalqty.remove(j+1);
 				price = all * calculateprice[j];
 				break;
 			}
@@ -84,6 +83,7 @@ public class MainRes {
 			}
 		} while (payment < lastPrice);
 		System.out.printf("Change: %.0f\n", payment - lastPrice);
+		System.exit(0);
 	}
 
 	public static void userChoice() {
@@ -92,9 +92,10 @@ public class MainRes {
 		String choice;
 		do {
 			System.out.println("Enter your choice : ");
-			choice = input.nextLine();
+			choice = input.next();
 			price = order(sum, choice);
-			if ((!choice.equalsIgnoreCase("q") && !choice.equalsIgnoreCase("t") && !choice.equalsIgnoreCase("m"))) {
+			if ((!choice.equalsIgnoreCase("q") && !choice.equalsIgnoreCase("t") && !choice.equalsIgnoreCase("m")
+					&& !choice.equalsIgnoreCase("o") && !choice.equalsIgnoreCase(checkInt(choice)))) {
 				System.out.println("Unknown Input \n Please enter agian");
 				continue;
 			}
@@ -105,9 +106,28 @@ public class MainRes {
 			} else if (choice.equalsIgnoreCase("q")) {
 				System.out.println("=======Thankyou=======\n");
 				break;
+			} else if (!choice.equalsIgnoreCase("m") && !choice.equalsIgnoreCase("t")
+					&& !choice.equalsIgnoreCase("q")
+					&& !choice.equalsIgnoreCase("o")) {
+				System.out.print("Enter Quantity: ");
+				qty = input.nextInt();
+			} else {
+				continue;
 			}
+			sum = sum + price(choice, qty);
 		} while (!choice.equalsIgnoreCase("q"));
 
+	}
+
+	public static String checkInt(String choice) {
+		String string;
+		for (int i = 1; i <= RestaurantManeger.getPrices().length; i++) {
+			string = Integer.toString(i);
+			if (choice.equals(string)) {
+				return string;
+			}
+		}
+		return null;
 	}
 	// public static double pizza = 0, chickens = 0, coke = 0, total = 0, exit;
 	// public static Scanner input = new Scanner(System.in);
