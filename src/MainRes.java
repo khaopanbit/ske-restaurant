@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*Restaurant manager provides service of the restaurant 
+ * user can change the menu items and price in menu.txt
+ * @author Pittayoot R.R.Ratanakul        */
 public class MainRes {
 	static Scanner input = new Scanner(System.in);
 	static ArrayList<Integer> order = new ArrayList<Integer>();
@@ -129,82 +131,12 @@ public class MainRes {
 		}
 		return null;
 	}
-	// public static double pizza = 0, chickens = 0, coke = 0, total = 0, exit;
-	// public static Scanner input = new Scanner(System.in);
-	// public static int quanpizza = 0, quanchickens = 0, quancoke = 0;
-	// static int[] quantity = new int[6];
-	//
-	// public static int calculator(int choice) {
-	// while (choice != 4 && choice != 5) {
-	// System.out.printf("Enter Quantity: ");
-	// if (choice == 1) {
-	// quanpizza = input.nextInt();
-	// quantity[1]=quanpizza;
-	// pizza = 250 * quanpizza;
-	// }
-	// if (choice == 2) {
-	// quanchickens = input.nextInt();
-	// quantity[2]=quanchickens;
-	// chickens = 120 * quanchickens;
-	// }
-	// if (choice == 3) {
-	// quancoke = input.nextInt();
-	// quantity[3]=quancoke;
-	// coke = 45 * quancoke;
-	// }
-	// if (choice == 6) {
-	// System.out.print("Reset");
-	// quanpizza = 0;
-	// quancoke = 0;
-	// quanchickens = 0;
-	// pizza = 0;
-	// chickens = 0;
-	// coke = 0;
-	// }
-	// System.out.printf("\nEnter your Choice: ");
-	// choice = input.nextInt();
-	// }
-	// if (choice == 4) {
-	// total = pizza + chickens + coke;
-	// System.out.printf("♥========= MENU =========♥== Qty ==♥== Price
-	// ====♥\n");
-	// if (pizza != 0) {
-	// System.out.printf("| Pizza | %d | %.0f\t |\n", quantity[1], pizza);
-	// }
-	// if (chickens != 0) {
-	// System.out.printf("| Chickens | %d | %.0f\t |\n", quantity[2], chickens);
-	// }
-	// if (coke != 0) {
-	// System.out.printf("| Coke | %d | %.0f\t |\n", quantity[3], coke);
-	// }
-	// System.out.println("♥========================♥=========♥=============♥");
-	// if (total != 0) {
-	// System.out.printf("| Total | %.0f\t |\n", total);
-	// }
-	// System.out.println("♥========================♥=========♥=============♥");
-	// }
-	// if (choice == 5) {
-	// System.out.print("♥♥♥♥♥ Thank you ♥♥♥♥♥");
-	// }
-	// return choice;
-	// }
 
 	public static void main(String[] args) {
 		RestaurantManeger.init();
 		menu();
 		setOrder();
 		userChoice();
-		// System.out.println("----♥---- Welcome to SKE Restaurant ----♥----");
-		// System.out.printf("1.) Pizza\t %5d Baht.\n", 250);
-		// System.out.printf("2.) Chickens\t %5d Baht.\n", 120);
-		// System.out.printf("3.) Coke\t %5d Baht. \n", 45);
-		// System.out.printf("4.) Total\n");
-		// System.out.printf("5.) Exit\n");
-		// System.out.printf("6.) Reset\n");
-		// System.out.print("\n");
-		// System.out.print("\n");
-		// System.out.print("Enter your Choice: ");
-		// int choice = input.nextInt();
-		// calculator(choice);
+
 	}
 }

@@ -3,3 +3,4 @@ Cheese Pizza;              220.0
 Pizza with mushroom;       250.0
 Salad, small;              30.0
 Ice Tea;                   20.0
+Soda;                      15.0
