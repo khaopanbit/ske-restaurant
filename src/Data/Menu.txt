@@ -1,6 +1,8 @@
 #Description;              price
-Cheese Pizza;              220.0
-Pizza with mushroom;       250.0
-Salad, small;              30.0
-Ice Tea;                   20.0
-Soda;                      15.0
+Cheese Pizza    ;              350.0
+Seafood Pizza   ;             400.0
+Spaghetti       ;                 180.0
+Ice Milktea     ;               65.0
+Ice and Soda    ;              20.0
+Honey wine      ;                 1250.0
+Calpheon Spacial;              800.0

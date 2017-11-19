@@ -4,7 +4,8 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-/* @author Pittayoot R.R.Ratanakul        */
+/* RestaurantManeger use for Import txt. to the menu in Mainres and also record the order.
+ * @author Pittayoot R.R.Ratanakul   */
 public class RestaurantManeger {
 
 	private static ArrayList<String> names = new ArrayList<>();
@@ -32,7 +33,7 @@ public class RestaurantManeger {
 			writer.println("||============Menu============||=========Quantity=========||=======Price======||");
 			for (int i = 0; i < price.length; i++) {
 				if (price[i] * order.get(i) != 0) {
-					writer.printf("|| \t\t %s||\t\t\t\t%d||     \t\t%.0f||\n", menu[i], order.get(i),
+					writer.printf("||%s\t      ||\t\t\t %d||\t\t   %.0f||\n", menu[i], order.get(i),
 							price[i] * order.get(i));
 					writer.println();
 				}
